@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+/* universal selector - box sizing property - if any padding or border added onto element it won't affect the width */
+* {
+  box-sizing: border-box;
+}
+
+/* body selector - using the imported font - 
+flex display to put things in middle of viewport 
+direction to column so items go up and down instead of horizontal
+justify to center screen
+height to 100vh aka the size of the screen
+overflow to hidden to remove scroll bars by default
+margin to 0
+*/
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background-color: antiquewhite;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.progress-container::before {
+  content:"";
+  background-color: #c5d1db;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.progress {
+  background-color: #3498db;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: white;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #c5d1db;
+  transition: .4s ease;
+}
+
+.circle.active  {
+  border-color: #3498db;
+}
+
+.btn {
+  background-color: #3498db;
+  color: white;
+  border: 0;
+  border-radius: 6px;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled{
+  background-color: #c5d1db;
+  cursor: not-allowed;
+}
